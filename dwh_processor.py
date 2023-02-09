@@ -312,12 +312,12 @@ if __name__ == "__main__":
         print("Missing expected params: e.g. python dwh_processor.py 2020-04-24 2020-04-17")
         miner_start_date = get_start_date(['2022-05-02', '2022-05-06'])
         miner_end_date = get_end_date(['2022-05-02', '2022-05-03'])
-        s3_bucket_name = 'datasson-lake-dev'
-        sql_database_name = 'TDW'
-        sql_server_name = 'STO-BI-DEV01.bde.local'
-                          #'bma-sql13-mig02.ble.local'
-        sql_user_name = f'BDE\\roch01'
-        sql_user_pwd = os.getenv("BLE_PASSWORD")
+        s3_bucket_name = 'datasson-lake-test'
+        sql_database_name = 'test'
+        sql_server_name = 'test-test.test.local'
+                          #'test-test-test.ble.local'
+        sql_user_name = f'BDE\\test'
+        sql_user_pwd = os.getenv("test")
         dwh_miner = DwhExtractProcessor(miner_start_date, miner_end_date, s3_bucket_name, sql_database_name
                                         , sql_server_name, sql_user_name, sql_user_pwd)
         print("Get Connection Object")
@@ -330,11 +330,11 @@ if __name__ == "__main__":
         print("Missing expected params: e.g. python dwh_processor.py 2020-04-24 2020-04-17")
         miner_start_date = get_start_date(['2022-05-02', '2022-05-06'])
         miner_end_date = get_end_date(['2022-05-02', '2022-05-03'])
-        s3_bucket_name = 'datasson-lake-dev'
-        sql_database_name = 'TDW'
-        sql_server_name = 'bma-sql13-mig02.ble.local'
-        sql_user_name = f'BLE\\roch01'
-        sql_user_pwd = os.getenv("BLE_PASSWORD")
+        s3_bucket_name = 'datasson-lake-test'
+        sql_database_name = 'test'
+        sql_server_name = 'test-test-test.ble.local'
+        sql_user_name = f'test\\test'
+        sql_user_pwd = os.getenv("test")
         dwh_miner = DwhExtractProcessor(miner_start_date, miner_end_date, s3_bucket_name, sql_database_name
                                         , sql_server_name, sql_user_name, sql_user_pwd)
         print("Get Connection Object")
