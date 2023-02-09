@@ -6,7 +6,7 @@ if [ "$#" -ne 2 ]; then
 fi
 
 ACCOUNT_ID=$1
-IMG_NAME=dwh-miner
+IMG_NAME=test
 IMG_VERSION=$2
 REGION=eu-central-1
 
