@@ -1,0 +1,13 @@
+{
+  "extract": [
+    {
+      "type": "query",
+      "out_path": "tpmtstatushistory",
+      "query": "SELECT sk_pmtTransactionInfo,paymentID,sk_merchant,pmtCreatedDate,sk_customer,sk_internalCustomer,ti.sk_pmtType as sk_pmtType,publicPaymentID,providerPaymentID,bin_series,bankAccount,pmtAmount,pmtAmount_EUR,pmtFee,pmtFee_EUR,currencyCode,providerAmount,providerAmount_EUR,providerFee,providerFee_EUR,providerCurrencyCode,ti.sk_pmtProvider as sk_pmtProvider ,sk_pmtMethod,sk_pmtStatus,pmtStatusChangeDateCET,pmtStatusChangeDate,pmtStatusReason,migrationSourceID,ti.regDate as regDate,ti.changeDate as changeDate,pmtCreatedDateCET,sk_deviceType,sk_bnsContext,maskedAccountNumber,PaymentReference,iban,swiftCode,bankName,swishNumber,IpCountryCode,siteName, t.pmtTypeName as pmtTypeName, UPPER(p.pmtProviderName) as pmtProviderName  FROM tpmtTransactionInfo ti WITH (NOLOCK) LEFT JOIN dbo.tpmtType t WITH (NOLOCK) ON ti.sk_pmtType = t.sk_pmtType LEFT JOIN dbo.tpmtProvider p WITH (NOLOCK) ON ti.sk_pmtProvider = p.sk_pmtProvider  WHERE CONVERT(DATE, DATEADD(HOUR,-1,pmtCreatedDate) ,102) = '{}' and DATEPART(HOUR, DATEADD(HOUR,-1,pmtCreatedDate)) ={}",
+      "columns": ["sk_pmtTransactionInfo","paymentID","sk_merchant","pmtCreatedDate","sk_customer","sk_internalCustomer","sk_pmtType","publicPaymentID","providerPaymentID","bin_series","bankAccount","pmtAmount","pmtAmount_EUR","pmtFee","pmtFee_EUR","currencyCode","providerAmount","providerAmount_EUR","providerFee","providerFee_EUR","providerCurrencyCode","sk_pmtProvider","sk_pmtMethod","sk_pmtStatus","pmtStatusChangeDateCET","pmtStatusChangeDate","pmtStatusReason","migrationSourceID","regDate","changeDate","pmtCreatedDateCET","sk_deviceType","sk_bnsContext","maskedAccountNumber","PaymentReference","iban","swiftCode","bankName","swishNumber","IpCountryCode","siteName","pmtTypeName","pmtProviderName"],
+      "bucket_prefix": "domain/src/tdw/payments/tpmt-status-history",
+      "file_name_suffix": "tpmtstatushistory",
+      "frequency": "hourly"
+    }
+  ]
+}

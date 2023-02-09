@@ -1,0 +1,5 @@
+{
+  "home_path": "/tmp/output/",
+  "run_env": "LOCAL",
+  "DISABLE_TDW_READY_CHECK": "false"
+}
